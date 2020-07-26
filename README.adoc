@@ -1,4 +1,17 @@
 = Capture
 
+*Capturing more context in your web browsing experience*
 
-Bringing more context to your web browsing experience
+
+The Capture browser extension uses the 
+link:https://duckduckgo.com/api[DuckDuckGo Instant Answers API]
+to provide contextual information inline while browsing the web.
+
+
+[NOTE]
+====
+This still has a LOT of work to make it helpful for people
+====
+
+
+
