@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Capture",
+  "version": "1.0",
+  "default_locale": "en",
+  "permissions" : [
+      "contextMenus",
+      "menus"
+  ],
+  "description": "Adds more context back to your web experience",
+
+  "icons": {
+    "48": "icons/capture_48.png"
+  },
+
+  "background": {
+      "scripts": [
+          "src/background.js"
+      ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["src/index.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "icons/capture_48.png",
+    "icons/ddg.svg"
+  ]
+}
