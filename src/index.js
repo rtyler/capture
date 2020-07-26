@@ -1,5 +1,3 @@
-document.body.style.border = "5px solid red";
-
 const backgroundPort = browser.runtime.connect({name:"port-from-cs"});
 //myPort.postMessage({greeting: "hello from content script"});
 
@@ -21,16 +19,14 @@ backgroundPort.onMessage.addListener(message => {
     </div>
 
     <div class="results">
-      <ul>
-        <li class="result-abstract">
-          <div class="abstract">
-            ${message.data.Abstract}
-          </div>
-          <div class="abstract-source">
-          From <a target="_blank" href="${message.data.AbstractURL}">${message.data.AbstractSource}</a>
-          </div>
-        </li>
-      </ul>
+      <div class="result-abstract">
+        <div class="abstract">
+          ${message.data.Abstract}
+        </div>
+        <div class="abstract-source">
+        From <a target="_blank" href="${message.data.AbstractURL}">${message.data.AbstractSource}</a>
+        </div>
+      </div>
     </div>
 
     <div class="attribution">
@@ -117,12 +113,14 @@ styles.innerHTML = `
  {box-sizing: border-box;}
 
 .capture-form-popup {
+  font-family: Inter,X-LocaleSpecific,sans-serif !important;
   display: none;
   position: fixed;
   border: 2px solid lightgrey;
   z-index: 9;
   background-color: white;
-  font-size: 0.9rem;
+  font-size: 10pt;
+  line-height: 1.5;
 }
 
 .capture-addon > .header {
@@ -139,30 +137,13 @@ styles.innerHTML = `
   background-color: white;
 }
 
-/* When the textarea gets focus, do something */
-.capture-form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/login button */
-.capture-form-container .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
 /* Add a red background color to the cancel button */
 .capture-form-container .cancel {
   background-color: red;
   padding: 5px;
   width: auto;
-  font-size: 0.8rem;
+  font-size: smaller;
+  color: white;
   float: right;
 }
 
@@ -172,13 +153,13 @@ styles.innerHTML = `
 }
 
 .capture-addon > .attribution {
-  font-size: 0.8rem;
+  font-size: small;
   background-color: lightgrey;
   padding: 2px;
 }
 
 .result-abstract > .abstract-source {
-  font-size: 0.8rem;
+  font-size: small;
   font-weight: bold;
   padding: 2px;
   text-align: right;
